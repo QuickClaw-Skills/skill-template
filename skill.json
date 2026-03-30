@@ -1,0 +1,24 @@
+{
+  "name": "skill-template",
+  "version": "1.0.0",
+  "description": "Template para criar novas skills OpenClaw",
+  "author": "QuickClaw-Skills",
+  "license": "MIT",
+  "homepage": "https://github.com/QuickClaw-Skills/skill-template",
+  "min_openclaw_version": "2026.3.0",
+  "runtime": "openclaw",
+  "entry": "skills/",
+  "workspace": "workspace/",
+  "config": "config/openclaw.json",
+  "permissions": {
+    "allow": ["group:fs", "group:memory"],
+    "elevated": [],
+    "deny": []
+  },
+  "dependencies": {
+    "bins": [],
+    "env": []
+  },
+  "pricing_tier": "free",
+  "tags": ["template"]
+}
