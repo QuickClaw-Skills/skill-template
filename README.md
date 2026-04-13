@@ -1,81 +1,69 @@
-# OpenClaw Skill Template
+# skill-template
 
-> Template oficial para criar skills compatíveis com a plataforma OpenClaw/QuickClaw.
+> Template oficial para criar skills na plataforma QuickClaw.
 
-## Início Rápido
+## Inicio Rapido
 
-1. Use este template para criar seu repositório
-2. Edite `skill.json` com os metadados da sua skill
-3. Crie seus arquivos em `skills/` seguindo o formato SKILL.md
-4. Configure `workspace/` se sua skill precisar de identidade/comportamento
-5. Ajuste `config/openclaw.json` com as permissões necessárias
+1. Clique **"Use this template"** no GitHub para criar seu repo
+2. Renomeie `minha-skill` para o nome da sua skill (em todos os arquivos)
+3. Edite `SKILL.md` com as instrucoes da skill
+4. Edite `skill.json` com os metadados
+5. Crie a release `v1.0.0` no GitHub
 
 ## Estrutura
 
 ```
-skill-nome/
-├── skill.json                    # Manifesto da skill (obrigatório)
-├── README.md                     # Documentação
-├── LICENSE                       # Licença
-├── workspace/                    # Identidade e comportamento (opcional)
-│   ├── AGENTS.md                 # Regras operacionais
-│   ├── SOUL.md                   # Personalidade e tom
-│   ├── USER.md                   # Template de contexto do usuário
-│   └── IDENTITY.md               # Nome e emoji
-├── skills/                       # Skills modulares
-│   └── minha-skill/
-│       ├── SKILL.md              # Documentação da skill (obrigatório)
-│       └── resources/            # Arquivos de referência (opcional)
-└── config/
-    └── openclaw.json             # Tools, heartbeat, agents
+minha-skill/
+├── SKILL.md          # Instrucoes para o LLM (obrigatorio)
+├── skill.json        # Manifesto (obrigatorio)
+├── README.md         # Documentacao (obrigatorio)
+├── LICENSE           # Licenca (obrigatorio)
+├── .gitignore
+├── resources/        # Docs de referencia (opcional)
+│   └── *.md
+└── workspace/        # Scripts executaveis (opcional)
+    └── *.sh, *.py
 ```
 
-## skill.json — Manifesto
+## Arquivos Obrigatorios
 
-Toda skill DEVE ter um `skill.json` na raiz. Veja o arquivo `skill.json` deste template como exemplo.
+| Arquivo | Proposito |
+|---------|-----------|
+| `SKILL.md` | Instrucoes para o LLM — frontmatter com name + description |
+| `skill.json` | Manifesto — versao, dependencias, permissoes, tags |
+| `README.md` | Documentacao para devs/users — features, exemplos, changelog |
+| `LICENSE` | Licenca da skill |
 
-### Campos Obrigatórios
+## Skill Simples vs Pack
 
-| Campo | Descrição |
-|-------|--------|
-| `name` | Identificador único (kebab-case) |
-| `version` | Semver (MAJOR.MINOR.PATCH) |
-| `description` | Descrição curta (1 linha) |
-| `author` | Username GitHub do autor |
-| `license` | Identificador SPDX |
-| `min_openclaw_version` | Versão mínima compatível |
-| `runtime` | `openclaw` ou `node` |
-| `entry` | Diretório ou arquivo de entrada |
-| `pricing_tier` | `free`, `premium`, ou `enterprise` |
+**Este template e para skill simples** (1 skill = 1 repo, SKILL.md na raiz).
 
-## SKILL.md — Formato
-
-Cada skill individual usa frontmatter YAML:
-
-```yaml
----
-name: nome-da-skill
-description: Quando usar esta skill e o que ela faz.
-  Keywords: palavra1, palavra2, palavra3
----
-
-# Título da Skill
-
-Instruções de implementação...
+Para **packs** (multiplas sub-skills num repo), use estrutura com `skills/`:
+```
+skill-pack/
+├── skill.json
+├── skills/
+│   ├── sub-skill-1/SKILL.md
+│   └── sub-skill-2/SKILL.md
+├── workspace/    # SOUL.md, AGENTS.md (compartilhado)
+└── config/       # openclaw.json (compartilhado)
 ```
 
-## Degradação Graciosa
+## Releases
 
-Skills DEVEM degradar graciosamente:
-- Se um binário não está instalado → skill não carrega, outras continuam
-- Se uma API key não está configurada → funcionalidades dependentes desabilitadas
+**Obrigatorio:** toda skill precisa de releases com tags semver.
 
-## Segurança
+```bash
+git tag v1.0.0
+git push origin main --tags
+gh release create v1.0.0 --title "v1.0.0" --notes "Release inicial"
+```
 
-- NUNCA hardcode credenciais — use variáveis de ambiente
-- NUNCA acesse `.env`, `.pem`, `.key` ou arquivos de credenciais
-- NUNCA envie dados do usuário para serviços externos sem consentimento
+## Referencia
 
-## Licença
+Para guia completo de criacao de skills, instale o **skill-builder** no seu agente:
+- [QuickClaw-Skills/skill-builder](https://github.com/QuickClaw-Skills/skill-builder)
 
-Este template é MIT. Escolha a licença apropriada para sua skill.
+## Licenca
+
+MIT — use como base para sua skill.
