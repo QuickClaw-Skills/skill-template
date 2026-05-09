@@ -1,6 +1,6 @@
 {
   "name": "skill-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Template oficial para criar skills na plataforma QuickClaw. Use 'Use this template' no GitHub para iniciar uma skill nova.",
   "author": "QuickClaw-Skills",
   "license": "MIT",
@@ -9,7 +9,9 @@
   "runtime": "openclaw",
   "entry": ".",
   "permissions": {
-    "allow": ["group:fs"],
+    "allow": [
+      "group:fs"
+    ],
     "elevated": [],
     "deny": []
   },
@@ -18,5 +20,9 @@
     "env": []
   },
   "pricing_tier": "free",
-  "tags": ["template", "scaffold", "starter"]
+  "tags": [
+    "template",
+    "scaffold",
+    "starter"
+  ]
 }
