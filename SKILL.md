@@ -1,11 +1,12 @@
 ---
-name: minha-skill
-description: Descreva o que a skill faz e quando o agente deve ativa-la.
-  Inclua contexto de uso e keywords para matching.
+name: skill-template
+description: Template oficial para criar skills na plataforma QuickClaw.
+  Substitua este description pelo texto da sua skill descrevendo O QUE ela faz e QUANDO o agente deve ativa-la.
+  Inclua keywords bilingues (PT-BR e EN) para bom matching de trigger.
   Keywords: keyword1-pt, keyword2-pt, keyword1-en, keyword2-en
 ---
 
-# Minha Skill
+# Minha Skill (renomear)
 
 Uma frase que resume o proposito.
 
