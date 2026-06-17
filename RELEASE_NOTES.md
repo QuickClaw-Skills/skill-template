@@ -1,14 +1,16 @@
-## v1.0.1 — 2026-05-09
+## v2.0.1 — 2026-06-17
 
-> Bump: PATCH
-> Compatibilidade: nenhuma quebra. Apenas description expandida.
+> Bump: PATCH sobre a linha v2
+> Compatibilidade: mantém o template simples alinhado ao skill-builder v2 e corrige o sync release/tag/manifest.
 
 ### Changed
-- `SKILL.md` frontmatter `description` expandida de ~169 chars para ~600 chars. Agora descreve explicitamente: (1) que e template oficial QuickClaw, (2) que se clona via "Use this template" no GitHub, (3) o que vem na estrutura, (4) que skill nao tem capacidade operacional propria, (5) instrucoes de o que devs DEVEM substituir antes da primeira release. Plus keywords bilingues mais completas (template, scaffold, starter, boilerplate, etc.).
+- `skill.json.version` alinhado para `2.0.1`, preservando as melhorias atuais de template e evitando regressao para a linha `1.0.x`.
+- `PROJECT.md` adicionado para registrar versao, tag, release e regra operacional do template.
 
 ### Fixed
-- Reaudit (09/05/2026) classificou skill-template como P2 "description curta demais para bom trigger". Resolvido — agora >= 200 chars conforme recomendacao do auditor.
+- Corrige desalinhamento em que a tag mais alta era `v2.0.0`, mas `skill.json` e latest release ainda apontavam `v1.0.1`.
+- Evita mover ou sobrescrever a tag historica `v2.0.0`; a correcao passa a ser publicada como `v2.0.1`.
 
 ### Validation
-- [x] CI da org passa (skill-ci v1.2.1)
-- [x] skill.json.version 1.0.0 -> 1.0.1
+- [x] `python3 -m json.tool skill.json`
+- [x] `git diff --check`
