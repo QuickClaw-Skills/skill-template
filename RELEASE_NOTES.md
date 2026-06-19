@@ -1,3 +1,8 @@
+## v2.0.2 — 2026-06-19
+
+- Align template manifest license with QuickClaw-Skills Proprietary default.
+- Expand SKILL.md frontmatter description for better trigger quality and policy clarity.
+
 ## v2.0.1 — 2026-06-17
 
 > Bump: PATCH sobre a linha v2

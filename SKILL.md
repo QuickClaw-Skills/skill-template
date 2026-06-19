@@ -1,15 +1,14 @@
 ---
 name: skill-template
 description: |
-  Template oficial QuickClaw para criar skills novas. Use "Use this template" no GitHub
-  para clonar a estrutura padronizada (SKILL.md, skill.json, LICENSE, README.md,
-  RELEASE_NOTES.md, .github/workflows/ci.yml apontando para skill-ci@v1).
-  Esta skill nao tem capacidade operacional propria — serve apenas como ponto de
-  partida. Apos clonar, devs DEVEM substituir este frontmatter (name, description,
-  keywords) pelos valores da skill real e mudar LICENSE de MIT para Proprietary
-  conforme policy da org (skill-builder/resources/skill-standards.md).
-  Keywords: template, skill template, novo skill, scaffold, starter, boilerplate,
-  use this template, criar skill, new skill, init, create skill QuickClaw.
+  Template oficial QuickClaw para criar skills novas com a estrutura padronizada
+  da org: SKILL.md, skill.json, LICENSE, README.md, RELEASE_NOTES.md e CI via
+  QuickClaw-Skills/skill-ci. Use quando devs quiserem criar, revisar ou clonar
+  uma skill base para publicação na org QuickClaw-Skills. A skill é apenas um
+  scaffold e não possui capacidade operacional própria. Ao clonar, substituir
+  name, description, keywords e manter licença Proprietary salvo exceção aprovada.
+  Keywords: template, scaffold, starter, boilerplate, criar skill, new skill,
+  skill QuickClaw, skill-ci, skill-builder, marketplace QuickClaw.
 ---
 
 # Minha Skill (renomear)
