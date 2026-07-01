@@ -1,3 +1,12 @@
+## v2.0.3 - 2026-07-01
+
+## Release workflow
+
+- Added the canonical reusable QuickClaw Skills release workflow.
+- Keeps future GitHub releases aligned with skill-ci automation.
+
+Version bump: v2.0.2 -> v2.0.3.
+
 ## v2.0.2 — 2026-06-19
 
 - Align template manifest license with QuickClaw-Skills Proprietary default.
