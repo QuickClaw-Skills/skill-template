@@ -1,3 +1,9 @@
+## v2.1.0 - 2026-07-03
+
+## Bloco "Contrato de exec" pronto no template
+
+- SKILL.md do template ganha secao "Contrato de exec" pre-preenchida (manter se a skill executa scripts, remover caso contrario) — padrao do preflight OpenClaw 5.2x+ (Bug 76).
+
 ## v2.0.3 - 2026-07-01
 
 ## Release workflow

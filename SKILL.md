@@ -48,3 +48,20 @@ Prefira exemplos a explicacoes.
 - NUNCA faca X
 - SEMPRE faca Y
 - Se Z, entao W
+
+## Contrato de exec (manter SE a skill executa scripts; remover caso contrario)
+
+> Padrao obrigatorio p/ preflight do OpenClaw 5.2x+ — ver `skill-builder/resources/skill-standards.md`.
+
+Para executar o script desta skill, use a ferramenta `exec` com **um unico comando direto**:
+
+```bash
+# exec com workdir: ~/.openclaw/skills/<slug-da-skill>
+python3 workspace/run.py <argumentos>
+```
+
+Alternativa (de qualquer workdir): `python3 ~/.openclaw/skills/<slug-da-skill>/workspace/run.py <argumentos>`
+
+**PROIBIDO no mesmo comando**: `cd ... &&`, `;`, pipes (`|`), redirecionamentos, `source .venv/bin/activate` (o wrapper cuida do venv), `python3 -c "..."`, prefixo de env, subshell.
+
+Se aparecer `exec preflight: complex interpreter invocation detected`: NAO e falta de permissao nem defeito da skill — reexecute na forma direta acima. NUNCA use web_search/web_fetch como fallback de dados.
