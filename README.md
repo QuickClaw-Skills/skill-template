@@ -26,8 +26,26 @@ skill-minha-coisa/
 ├── resources/                     # Docs de referencia (opcional)
 │   └── *.md
 └── workspace/                     # Scripts executaveis (opcional)
+    ├── run.py                     # Wrapper de referencia — copie e adapte
     └── *.sh, *.py
 ```
+
+### `workspace/run.py` — wrapper de referencia
+
+Se a sua skill tem entrypoint Python, **comece por este arquivo** em vez de
+copiar o wrapper de outra skill. Ele ja vem com as duas coisas que o `skill-ci`
+cobra e que faltavam em cinco skills da org ate agosto/2026:
+
+- **Propaga o exit code do processo filho.** Wrapper que descarta o `returncode`
+  sai `0` com a skill quebrada, e a falha chega ao agente como sucesso — ele
+  entao apresenta ausencia de dados como resultado valido. Passou meses
+  despercebido porque nao havia nada para perceber: nem log, nem alerta, nem
+  exit code. O check `check-wrapper-exit-code` (skill-ci v1.5.0+) reprova isso.
+- **Avisa ao degradar.** Cair para o Python global quando o `.venv` falha e
+  aceitavel; fazer isso em silencio nao e, porque o sintoma vira
+  indiagnosticavel.
+
+Se a sua skill nao executa nada (skill so de prompt), apague `workspace/`.
 
 ## Arquivos Obrigatorios
 
